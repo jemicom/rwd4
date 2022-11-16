@@ -11,7 +11,7 @@
             background: linear-gradient(90deg, rgb(79, 159, 191)  50%, rgb(173, 230, 249) 0);
             background-size: 10px; 
         }
-        .container{ width: 1200px; background-color: antiquewhite; margin: auto; 
+        .container{ width: 1440px; background-color: antiquewhite; margin: auto; 
             position: relative;
         }
 
@@ -80,15 +80,19 @@
         }
         .pbnews-container a{ color:black; }
         .pbevent-container{  font-size: 12px; }
-        .pbevent-container .imgCaption span{ display: block; }
+        /* .pbevent-container .imgCaption span{ display: block; } */
         /* 적용안됨 */
         .follow-list,
         .product-list{ display: flex; gap:10px;
             flex-wrap:wrap;
+            justify-content: center; 
+            /* 추가 */
         }
 
+        .product-list li{ width:calc( (100% - 80px) / 9 );}
         section{ margin: 0 300px 0 250px; 
                background-color:white;
+               padding-bottom: 200px;
         }
 
         .mainBanner img{ width: 100%;  }
@@ -118,6 +122,27 @@
             font-size: 12px;
             margin-bottom: 20px;
         }
+
+        .information-container, 
+        .service-container{ width: 50%; float:left;
+            padding: 15px;
+        }
+        .information-container>div,
+        .service-container>div{
+            display: flex; justify-content: space-between;
+            align-items: center;
+        }
+
+        table{ border-collapse: collapse; width:100%;}
+        th, td{ border: 1px solid black; }
+        th:first-child, td:first-child{ border-left:none; }
+        th:last-child, td:last-child{ border-right:none; }
+        tr:nth-child(1) th,
+        tr:nth-child(3) th
+        { background-color: darkblue; color:white;
+            font-size:12px; padding: 5px 0; 
+        }
+        td{ text-align: center; padding: 5px 0; }
         aside{ width:300px;  
             background-color: white;
             position: absolute;  right:0; top:0;
@@ -130,16 +155,39 @@
         aside img{ width:100%; }
         aside>div:hover{  filter:hue-rotate(180deg);}
 
-        footer{ width:1200px; margin: auto;
+        footer{ width:1440px; margin: auto;
             height: 100px; background-color: black;
         }
 
-        @media screen and (max-width:1230px) {
+        @media screen and (max-width:1470px) {
             .container{ width:98%; }
             footer{ width:98%; }
+            .information-container h2{  
+                white-space: nowrap;
+            }
+        }
+        @media screen and (max-width:1200px) { 
+            .product-container li{ 
+                width: calc( (100% - 50px) / 6);
+            }
+            .information-container h2{ 
+                width: 43%; 
+                overflow: hidden; 
+            }
         }
         @media screen and (max-width:1000px) {
             section{ margin: 0  0  0 250px;  }
+            .product-container li{ 
+                width: calc( (100% - 30px) / 4);
+            }
+            .product-container li:nth-child(17) img{ 
+                transform: translateX( -70px );
+                /* item의 각각의 위치 조정 */
+            }
+            .product-container li:nth-child(18) img{ 
+                /* align-self: flex-start; */
+                transform: translateX( -100px );
+            }
             aside{ position: static; margin: 0  0  0 250px;
                 width:auto;  height: auto;
                 display: flex;
@@ -227,7 +275,7 @@
                 </div>
             </div>
         </header>
-        <section>
+        <section class="clearFix">
             <div class="mainBanner">
                 <img src="./images/bn_main.png" alt="">
             </div>
@@ -266,6 +314,53 @@
                     <li><a href="#"><img src="./images/list_product_18.png" alt=""></a></li>
                     <li><a href="#"><img src="./images/list_product_19.png" alt=""></a></li>
                 </ul>
+            </div>
+            <!-- product-container end -->
+            <div class="information-container">
+                <div>
+                    <h2>PB Nutition Information</h2>
+                    <div class="more"><img src="./images/btn_more.png" alt=""></div>
+                </div>
+                <div>
+                    <img src="./images/list_product_02.png" alt="">
+                    <p>초콜렛크림치즈브레드</p>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>총중량 <br> (g)</th>
+                            <th>1회 제공량 <br> (g)</th>
+                            <th>1회 칼로리 <br> (g)</th>
+                            <th>총 칼로리 <br> (g)</th>
+                        </tr>
+                        <tr>
+                            <td>190</td>
+                            <td>95</td>
+                            <td>290</td>
+                            <td>520</td>
+                        </tr>
+                        <tr>
+                            <th>총중량 <br> (g)</th>
+                            <th>1회 제공량 <br> (g)</th>
+                            <th>1회 칼로리 <br> (g)</th>
+                            <th>총 칼로리 <br> (g)</th>
+                        </tr>
+                        <tr>
+                            <td>190</td>
+                            <td>95</td>
+                            <td>290</td>
+                            <td>520</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="service-container">
+                <div>
+                    <h2>PB 서비스 우수점</h2>
+                    <div class="more">
+                        <img src="./images/btn_more.png" alt="">
+                    </div>
+                </div>
             </div>
         </section>
         <aside>
