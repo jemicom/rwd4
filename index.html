@@ -10,8 +10,10 @@
         body{ 
             background: linear-gradient(90deg, rgb(79, 159, 191)  50%, rgb(173, 230, 249) 0);
             background-size: 10px; 
+            overflow-x: hidden;
+            /* reset에 추가할 내용 */
         }
-        .container{ width: 1440px; background-color: antiquewhite; margin: auto; 
+        .container{ width: 1440px; background-color: white; margin: auto; 
             position: relative;
         }
 
@@ -156,8 +158,24 @@
         aside>div:hover{  filter:hue-rotate(180deg);}
 
         footer{ width:1440px; margin: auto;
-            height: 100px; background-color: black;
+            height: 100px; background-color: white;
+            display: flex;
+            border-top: 1px solid gray;
         }
+
+        .footer-left{ width:250px; border-right:1px solid gray;
+                display: flex;
+                font-size: 0;
+                justify-content: center;
+                align-items: center;
+        }
+        .footer-right{ padding: 15px; font-size: 12px;}
+        .footer-info>ul{ display: flex;  gap: 20px; }
+        .footer-info  li:first-child a{ font-weight: bold; color:red; }
+        .footer-info{ margin-bottom: 10px;}
+        address{ font-style: normal;}
+        section{ border-left:1px solid gray; }
+
 
         @media screen and (max-width:1470px) {
             .container{ width:98%; }
@@ -176,7 +194,7 @@
             }
         }
         @media screen and (max-width:1000px) {
-            section{ margin: 0  0  0 250px;  }
+            section{ margin: 0  0  0 250px; padding-bottom: 20px; }
             .product-container li{ 
                 width: calc( (100% - 30px) / 4);
             }
@@ -196,9 +214,56 @@
             /*  원래는 정의된 높이가 있다. */
         }
         @media screen and (max-width:600px) {
-            header{ float: none; width:100%; height: 100px;}
+
+            .container{
+                width:100%; 
+                background: transparent;
+            }
+            header{ float: none; width:100%; height: auto;
+                    padding:0;
+                    background-color: transparent;
+            } 
+            header h1{ background-color: white; margin-bottom: 0;}
+            h1>img{ width:200px; }
+            .lnb{ margin-bottom:0; }
+            .lnb>ul{ display: flex; flex-wrap:wrap; }
+            .lnb>ul>li{ width:33.333333%;}
+            .lnb>ul>li>a{ text-align: center;
+                background-image: none;
+            }
+
+            .tell-container{ text-align: center;
+                background-color: white;
+                padding: 20px 0; 
+                margin-bottom: 5px;
+            }
+            .follow-container{ background-color: white;
+                padding: 20px 0; 
+                margin-bottom: 5px;
+            }
+            .follow-container ul{ flex-wrap: nowrap; 
+                /* gap:0; */
+             }
+            .pbnews-container,
+            .pbevent-container{ display: none;}
+
             section{ margin: 0;  }
+
+            .information-container{ width:100%; }
+            .information-container>div{
+                margin-bottom: 20px;
+            }
+            .information-container>div:nth-child(2){
+                justify-content: center;
+                gap: 30px;
+            }
+            .service-container{ width:100%; }
+
             aside{   margin: 0  ;}
+            footer{ width:100%; }
+            .footer-left{ display: none;}
+            .footer-right{ text-align: center; width:100%; }
+            .footer-info>ul{ justify-content: center;    }
         }
     </style>
 </head>
@@ -369,7 +434,25 @@
             <div><img src="./images/bn_rwd_03.png" alt=""></div>
         </aside>
     </div>
-    <footer></footer>
+    <footer>
+        <div class="footer-left">
+            <h1>logo <img src="./images/logo_grey.png" alt=""> </h1>
+        </div>
+        <div class="footer-right">
+            <div class="footer-info">
+                <ul>
+                    <li><a href="#">개인정보취급방침</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                </ul>
+            </div>
+            <address>
+                길동 팩토리(HongGilDong Factory) 대표자 : 홍길동 <br>
+                대표홈페이지 : www.paris.co.kr  <br>
+                ©2018 gildong Factory All RIGHT RESERVED.  <br>
+            </address>
+        </div>
+    </footer>
 </body>
 </html>
 
